@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  $aleatorio = rand(1, 100);
+  if($aleatorio % 2 == 0){
+      return view('welcome');
+  }else{
+      return view('pelusa');
+  }
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

@@ -10,7 +10,7 @@ class Redsocialamigo extends Model
 
     protected $fillable = ['nombre', 'direccion'];
 
-    public function amigos()
+    public function amigo()
     {
       return $this->belongsTo('App\Amigo');
     }

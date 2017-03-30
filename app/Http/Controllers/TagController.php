@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Artesania;
+use App\Tag;
 use Illuminate\Http\Request;
 
-class ArtesaniaController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ArtesaniaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Artesania  $artesania
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Artesania $artesania)
+    public function show(Tag $tag)
     {
         //
     }
@@ -52,10 +52,10 @@ class ArtesaniaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Artesania  $artesania
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Artesania $artesania)
+    public function edit(Tag $tag)
     {
         //
     }
@@ -64,10 +64,10 @@ class ArtesaniaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Artesania  $artesania
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Artesania $artesania)
+    public function update(Request $request, Tag $tag)
     {
         //
     }
@@ -75,10 +75,10 @@ class ArtesaniaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Artesania  $artesania
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Artesania $artesania)
+    public function destroy(Tag $tag)
     {
         //
     }
