@@ -21,6 +21,18 @@ class CreaTablaPiezas extends Migration
           $table->string('url');
           $table->timestamps();
         });
+
+          // Piezas y tags
+
+          Schema::create('pieza_tag', function (Blueprint $table) {
+              $table->increments('id');
+              $table->integer('pieza_id')->unsigned();
+              $table->integer('tag_id')->unsigned();
+              $table->foreign('pieza_id')->references('id')->on('pelusis');
+              $table->foreign('tag_id')->references('id')->on('tags');
+              $table->timestamps();
+          });
+
     }
 
     /**
@@ -31,5 +43,6 @@ class CreaTablaPiezas extends Migration
     public function down()
     {
         Schema::dropIfExists('piezas');
+        Schema::dropIfExists('pieza_tag');
     }
 }

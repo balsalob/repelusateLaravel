@@ -17,6 +17,8 @@ class CreaTablaRedsocialamigos extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('direccion');
+            $table->integer('amigo_id')->unsigned();
+            $table->foreign('amigo_id')->references('id')->on('amigos')->onDelete('cascade');
             $table->timestamps();
         });
     }
