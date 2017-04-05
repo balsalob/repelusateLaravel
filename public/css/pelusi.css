@@ -1,0 +1,48 @@
+@font-face {
+font-family: Dakinizazi;
+src: url(/fonts/Dakinizazi.ttf);
+}
+
+html
+{
+    position: relative;
+    min-height: 100%;
+}
+
+body
+{
+    margin: 0 0 105px;
+}
+
+header, footer{
+  font-family: Dakinizazi;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #292b2c;
+    color: white;
+}
+
+.red {
+  color: red;
+}
+
+.margen{
+  margin-top: 25px;
+}
+
+.centrado{
+  justify-content:center;
+}
+
+.logo{
+  font-size: 40px;
+}
+
+.menu{
+  font-size: 24px;
+}

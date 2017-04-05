@@ -23,3 +23,31 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/prueba', function () {
+  return view('prueba');
+});
+
+Route::get('/pelusis', function () {
+  return view('pelusis');
+});
+
+Route::get('/amigos', function () {
+  return view('amigos');
+});
+
+Route::get('/eventos', function () {
+  return view('eventos');
+});
+
+Route::get('/piezas', function () {
+  return view('piezas');
+});
+
+Route::get('/artesania', function () {
+  return view('artesania');
+});
+
+Route::get('/contacto', function () {
+  return view('contacto');
+});
