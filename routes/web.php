@@ -28,25 +28,15 @@ Route::get('/prueba', function () {
   return view('prueba');
 });
 
-Route::get('/pelusis', function () {
-  return view('pelusis');
-});
+Route::get('/pelusis', 'PelusiController@index');
 
-Route::get('/amigos', function () {
-  return view('amigos');
-});
+Route::get('/amigos', 'AmigoController@index');
 
-Route::get('/eventos', function () {
-  return view('eventos');
-});
+Route::get('/eventos', 'EventoController@index');
 
-Route::get('/piezas', function () {
-  return view('piezas');
-});
+Route::get('/piezas', 'PiezaController@index');
 
-Route::get('/artesania', function () {
-  return view('artesania');
-});
+Route::get('/artesania', 'ArtesaniaController@index');
 
 Route::get('/contacto', function () {
   return view('contacto');

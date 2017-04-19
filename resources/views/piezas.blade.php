@@ -6,4 +6,7 @@
   <h1>
     Piezas!!!
   </h1>
+  @foreach($piezas as $pieza)
+
+  @endforeach
 @endsection

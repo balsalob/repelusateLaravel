@@ -14,7 +14,8 @@ class PelusiController extends Controller
      */
     public function index()
     {
-        //
+      $pelusis = Pelusi::get();
+      return view('pelusis')->with('pelusis', $pelusis);
     }
 
     /**

@@ -12,6 +12,7 @@ html
 body
 {
     margin: 0 0 105px;
+    background-image: url("/img/fondo2.jpg");
 }
 
 header, footer{
@@ -33,6 +34,10 @@ footer{
 
 .margen{
   margin-top: 25px;
+}
+
+.fondo{
+  background-color: white;
 }
 
 .centrado{

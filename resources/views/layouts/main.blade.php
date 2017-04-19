@@ -18,7 +18,7 @@
     <body>
         @include('layouts.navbar')
 
-        <div class="container margen">
+        <div class="container margen fondo">
           @yield('content', 'repelusate')
         </div>
 
