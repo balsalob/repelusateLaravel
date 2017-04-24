@@ -24,8 +24,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/prueba', function () {
-  return view('prueba');
+Route::get('/', function () {
+  return view('inicio');
 });
 
 Route::get('/pelusis', 'PelusiController@index');

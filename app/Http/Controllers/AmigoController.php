@@ -15,6 +15,7 @@ class AmigoController extends Controller
     public function index()
     {
         $amigos = Amigo::get();
+        //dd($amigos);
         return view('amigos')->with('amigos', $amigos);;
     }
 

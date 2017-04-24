@@ -3,8 +3,9 @@
 @section('title', 'Eventos')
 
 @section('content')
+<div class="container margen fondo">
   <h1>
-    Eventos!!!
+    <span class="red">E</span>ventos
   </h1>
   <div class="row">
   @foreach($eventos as $evento)
@@ -17,4 +18,5 @@
   </div>
   @endforeach
   </div>
+</div>
 @endsection

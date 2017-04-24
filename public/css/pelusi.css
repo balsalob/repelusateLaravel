@@ -1,6 +1,6 @@
 @font-face {
-font-family: Dakinizazi;
-src: url(/fonts/Dakinizazi.ttf);
+  font-family: Dakinizazi;
+  src: url(/fonts/Dakinizazi.ttf);
 }
 
 html
@@ -11,7 +11,7 @@ html
 
 body
 {
-    margin: 0 0 105px;
+    margin: 0 0 80px;
     background-image: url("/img/fondo2.jpg");
 }
 
@@ -28,8 +28,18 @@ footer{
     color: white;
 }
 
+h1 {
+   text-align: center;
+   font-family: Dakinizazi;
+   font-size: 50px;
+}
+
 .red {
   color: red;
+}
+
+.black {
+  color: black;
 }
 
 .margen{
@@ -42,6 +52,7 @@ footer{
 
 .centrado{
   justify-content:center;
+  text-align: center;
 }
 
 .logo{
@@ -50,4 +61,36 @@ footer{
 
 .menu{
   font-size: 24px;
+}
+
+.redes {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.redes li {
+	margin:2px;
+	padding:2px;
+	float:left; //para eliminar el comportamiento de elemento de bloque(salto de linea)
+}
+
+.redes2 {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.redes2 li {
+	margin:10px;
+	padding:10px;
+	float:left; //para eliminar el comportamiento de elemento de bloque(salto de linea)
+}
+
+.contenedor{
+display:table; /* ¡La clave de todo! */
+text-align:left;
+margin:0 auto;
+}
+
+#carrusel{
+  
 }

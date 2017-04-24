@@ -3,8 +3,8 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/prueba">
-      <img src="/img/pelusi.png" width="60" height="60" class="d-inline-block align-top" alt="">
+    <a class="navbar-brand" href="/">
+      <img src="/img/pelusi.png" width="60" height="60" class="d-inline-block align-top" alt="pelusi">
       <span class="logo"><span class="red">R</span>epelusate</span>
     </a>
 
@@ -26,7 +26,7 @@
           <a class="nav-link" href="/amigos">Amigos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://tienda.repelusate.com">Tienda</a>
+          <a class="nav-link" href="http://tienda.repelusate.com" target="_blank">Tienda</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/contacto">Contacto</a>

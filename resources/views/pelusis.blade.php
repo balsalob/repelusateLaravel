@@ -3,8 +3,9 @@
 @section('title', 'Pelusis')
 
 @section('content')
+<div class="container margen fondo">
   <h1>
-    Pelusis!!!
+    <span class="red">P</span>elusis
   </h1>
   <div class="row">
   @foreach($pelusis as $pelusi)
@@ -17,4 +18,5 @@
     </div>
   @endforeach
   </div>
+</div>
 @endsection
