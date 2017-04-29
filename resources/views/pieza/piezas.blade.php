@@ -5,7 +5,7 @@
 @section('content')
 <div class="container margen fondo">
   <h1>
-    <span class="red">P</span>iezas
+    <span class="red">N</span>uestros productos
   </h1>
   <div class="row">
   @foreach($piezas as $pieza)

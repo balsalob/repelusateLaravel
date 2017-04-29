@@ -10,7 +10,7 @@
 
     <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="/piezas">Piezas</a>
         </li>
         <li class="nav-item">

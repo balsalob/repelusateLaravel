@@ -15,7 +15,7 @@ class EventoController extends Controller
     public function index()
     {
         $eventos = Evento::get();
-        return view('eventos')->with('eventos', $eventos);
+        return view('evento.eventos')->with('eventos', $eventos);
     }
 
     /**
@@ -25,7 +25,7 @@ class EventoController extends Controller
      */
     public function create()
     {
-        //
+        return view('evento.eventoscreate');
     }
 
     /**
@@ -36,7 +36,9 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $evento = new Evento($request -> all());
+      $evento -> save();
+      return redirect('/eventos');
     }
 
     /**
@@ -79,8 +81,10 @@ class EventoController extends Controller
      * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Evento $evento)
+    public function destroy($id)
     {
-        //
+      $evento = Evento::find($id);
+      $evento -> delete();
+      return redirect('/eventos');
     }
 }

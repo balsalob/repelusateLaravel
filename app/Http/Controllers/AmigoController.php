@@ -15,8 +15,7 @@ class AmigoController extends Controller
     public function index()
     {
         $amigos = Amigo::get();
-        //dd($amigos);
-        return view('amigos')->with('amigos', $amigos);;
+        return view('amigo.amigos')->with('amigos', $amigos);
     }
 
     /**
@@ -26,7 +25,7 @@ class AmigoController extends Controller
      */
     public function create()
     {
-        //
+        return view('amigo.amigocreate');
     }
 
     /**
@@ -37,7 +36,9 @@ class AmigoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $amigo = new Amigo($request -> all());
+      $amigo -> save();
+      return redirect('/amigos');
     }
 
     /**
@@ -80,8 +81,10 @@ class AmigoController extends Controller
      * @param  \App\Amigo  $amigo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Amigo $amigo)
+    public function destroy($id)
     {
-        //
+      $amigo = Amigo::find($id);
+      $amigo -> delete();
+      return redirect('/amigos');
     }
 }

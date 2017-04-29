@@ -9,7 +9,7 @@
   </h1>
     <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h2 class="display-3">Buscanos en nuestras redes sociales</h2>
+      <h2 class="display-3">Búscanos en nuestras redes sociales</h2>
       <div class="contenedor">
         <p class="lead">
           <ul class="redes2 centrado">

@@ -18,7 +18,7 @@
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
         <div class="carousel-item" style="background-image: url('/img/carrusel/2.jpg')">
-            <div class="carousel-caption d-none d-md-block black">
+            <div class="carousel-caption d-none d-md-block">
               <h1 class="display-3">
                 <img src="/img/pelusi.png" width="90" height="90" class="d-inline-block align-top" alt="pelusi">
                 <span class="red">R</span>epelusate
@@ -28,7 +28,7 @@
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
         <div class="carousel-item" style="background-image: url('/img/carrusel/3.jpg')">
-            <div class="carousel-caption d-none d-md-block black">
+            <div class="carousel-caption d-none d-md-block">
               <h1 class="display-3">
                 <img src="/img/pelusi.png" width="90" height="90" class="d-inline-block align-top" alt="pelusi">
                 <span class="red">R</span>epelusate

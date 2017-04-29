@@ -15,7 +15,7 @@ class PelusiController extends Controller
     public function index()
     {
       $pelusis = Pelusi::get();
-      return view('pelusis')->with('pelusis', $pelusis);
+      return view('pelusi.pelusis')->with('pelusis', $pelusis);
     }
 
     /**
@@ -25,7 +25,7 @@ class PelusiController extends Controller
      */
     public function create()
     {
-        //
+        return view('pelusi.pelusicreate');
     }
 
     /**
@@ -36,7 +36,9 @@ class PelusiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pelusi = new Pelusi($request -> all());
+        $pelusi -> save();
+        return redirect('/pelusis');
     }
 
     /**
@@ -56,9 +58,11 @@ class PelusiController extends Controller
      * @param  \App\Pelusi  $pelusi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pelusi $pelusi)
+    public function edit($id)
     {
-        //
+        $pelusi = Pelusi::find($id);
+        //dd($pelusi);
+        return view('pelusi.pelusiedit')->with('pelusi', $pelusi);
     }
 
     /**
@@ -79,8 +83,10 @@ class PelusiController extends Controller
      * @param  \App\Pelusi  $pelusi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pelusi $pelusi)
+    public function destroy($id)
     {
-        //
+        $pelusi = Pelusi::find($id);
+        $pelusi -> delete();
+        return redirect('/pelusis');
     }
 }
