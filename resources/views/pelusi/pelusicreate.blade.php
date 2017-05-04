@@ -8,7 +8,7 @@
     <span class="red">C</span>rea un pelusi
   </h1>
   <div class="row">
-    {!! Form::open(['route' => 'pelusi.store', 'method' => 'POST']) !!}
+    {!! Form::open(['route' => 'pelusis.store', 'method' => 'POST']) !!}
       <div class="form-group">
         {!! Form::label('nombre', 'Nombre') !!}
         {!! Form::text('nombre','' ,['class' => 'form-control',

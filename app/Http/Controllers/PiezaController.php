@@ -39,7 +39,7 @@ class PiezaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Pelusi  $pelusi
+     * @param  \App\Pieza $pieza
      * @return \Illuminate\Http\Response
      */
     public function show(Pieza $pieza)
@@ -50,35 +50,35 @@ class PiezaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Pelusi  $pelusi
+     * @param  \App\Pieza $pieza
      * @return \Illuminate\Http\Response
      */
     public function edit(Pieza $pieza)
     {
-        //
+        return view('pieza.piezaedit')->with('pieza', $pieza);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Pelusi  $pelusi
+     * @param  \App\Pieza $pieza
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Pieza $pieza)
     {
-        //
+      $pieza->update($request->all());
+      return redirect('/piezas');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Pelusi  $pelusi
+     * @param  \App\Pieza $pieza
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pieza $pieza)
     {
-      $pieza = Pieza::find($id);
       $pieza -> delete();
       return redirect('/piezas');
     }

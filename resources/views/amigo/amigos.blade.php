@@ -10,7 +10,7 @@
   <div class="row">
   @foreach($amigos as $amigo)
     <div class="card col-md-4">
-      <img class="card-img-top img-fluid" src="/img/{{$amigo->foto}}"
+      <img class="card-img-top img-fluid" src="/img/amigos/{{$amigo->foto}}"
         alt="{{$amigo->nombre}}">
       <div class="card-block">
         <h4 class="card-title">{{ $amigo->nombre }}</h4>
@@ -25,9 +25,16 @@
             </li>
           @endforeach
         </ul>
+        <a class="btn btn-primary" href="{{ route('amigos.edit', $amigo) }}">Editar</a>
+        {!! Form::open(['route' => ['amigos.destroy', $amigo], 'method' => 'DELETE']) !!}
+          {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+        {!! Form::close() !!}
       </div>
     </div>
-  </div>
   @endforeach
+  <div class="cold-md-12">
+    <a class="btn btn-primary" href="{{ route('amigos.create') }}">Crea un amigo nuevo</a>
   </div>
+  </div>
+</div>
 @endsection

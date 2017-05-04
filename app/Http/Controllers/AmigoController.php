@@ -60,7 +60,7 @@ class AmigoController extends Controller
      */
     public function edit(Amigo $amigo)
     {
-        //
+        return view('amigo.amigoedit')->with('amigo', $amigo);
     }
 
     /**
@@ -72,7 +72,8 @@ class AmigoController extends Controller
      */
     public function update(Request $request, Amigo $amigo)
     {
-        //
+      $amigo->update($request->all());
+      return redirect('/amigos');
     }
 
     /**
@@ -81,9 +82,8 @@ class AmigoController extends Controller
      * @param  \App\Amigo  $amigo
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Amigo $amigo)
     {
-      $amigo = Amigo::find($id);
       $amigo -> delete();
       return redirect('/amigos');
     }

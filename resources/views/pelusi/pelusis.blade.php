@@ -10,13 +10,20 @@
   <div class="row">
   @foreach($pelusis as $pelusi)
     <div class="card col-md-4">
-      <img class="card-img-top img-fluid" src="/img/{{$pelusi->foto}}" alt="{{$pelusi->nombre}}">
+      <img class="card-img-top img-fluid" src="/img/pelusis/{{$pelusi->foto}}" alt="{{$pelusi->nombre}}">
       <div class="card-block">
         <h4 class="card-title">{{ $pelusi->nombre }}</h4>
         <p class="card-text">{{ $pelusi->historia }}</p>
+        <a class="btn btn-primary" href="{{ route('pelusis.edit', $pelusi) }}">Editar</a>
+        {!! Form::open(['route' => ['pelusis.destroy', $pelusi], 'method' => 'DELETE']) !!}
+          {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+        {!! Form::close() !!}
       </div>
     </div>
   @endforeach
+  </div>
+  <div class="cold-md-12">
+    <a class="btn btn-primary" href="{{ route('pelusis.create') }}">Crea un pelusi nuevo</a>
   </div>
 </div>
 @endsection

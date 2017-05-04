@@ -20,7 +20,7 @@
           <a class="nav-link" href="/eventos">Eventos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/artesania">Como lo hacemos</a>
+          <a class="nav-link" href="/artesanias">Como lo hacemos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/amigos">Amigos</a>

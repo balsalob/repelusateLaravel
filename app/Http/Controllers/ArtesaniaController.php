@@ -7,11 +7,21 @@ use Illuminate\Http\Request;
 
 class ArtesaniaController extends Controller
 {
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
   public function index()
   {
     $artesanias = Artesania::get();
     return view('artesania.artesania')->with('artesanias', $artesanias);
   }
+  /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
 
   public function create()
   {
@@ -28,13 +38,13 @@ class ArtesaniaController extends Controller
   {
     $artesania = new Artesania($request -> all());
     $artesania -> save();
-    return redirect('/artesania');
+    return redirect('/artesanias');
   }
 
   /**
    * Display the specified resource.
    *
-   * @param  \App\Pelusi  $pelusi
+   * @param  \App\Artesania $artesania
    * @return \Illuminate\Http\Response
    */
   public function show(Artesania $artesania)
@@ -45,36 +55,36 @@ class ArtesaniaController extends Controller
   /**
    * Show the form for editing the specified resource.
    *
-   * @param  \App\Pelusi  $pelusi
+   * @param  \App\Artesania $artesania
    * @return \Illuminate\Http\Response
    */
   public function edit(Artesania $artesania)
   {
-      //
+      return view('artesania.artesaniaedit')->with('artesania', $artesania);
   }
 
   /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Pelusi  $pelusi
+   * @param  \App\Artesania $artesania
    * @return \Illuminate\Http\Response
    */
   public function update(Request $request, Artesania $artesania)
   {
-      //
+    $artesania->update($request->all());
+    return redirect('/artesanias');
   }
 
   /**
    * Remove the specified resource from storage.
    *
-   * @param  \App\Pelusi  $pelusi
+   * @param  \App\Artesania $artesania
    * @return \Illuminate\Http\Response
    */
-  public function destroy($id)
+  public function destroy(Artesania $artesania)
   {
-    $artesania = Artesania::find($id);
     $artesania -> delete();
-    return redirect('/artesania');
+    return redirect('/artesanias');
   }
 }

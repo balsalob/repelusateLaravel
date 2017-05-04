@@ -49,7 +49,7 @@ class PelusiController extends Controller
      */
     public function show(Pelusi $pelusi)
     {
-        //
+        return "Tu puta madre";
     }
 
     /**
@@ -58,10 +58,8 @@ class PelusiController extends Controller
      * @param  \App\Pelusi  $pelusi
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pelusi $pelusi)
     {
-        $pelusi = Pelusi::find($id);
-        //dd($pelusi);
         return view('pelusi.pelusiedit')->with('pelusi', $pelusi);
     }
 
@@ -74,7 +72,8 @@ class PelusiController extends Controller
      */
     public function update(Request $request, Pelusi $pelusi)
     {
-        //
+        $pelusi->update($request->all());
+        return redirect('/pelusis');
     }
 
     /**
@@ -83,9 +82,8 @@ class PelusiController extends Controller
      * @param  \App\Pelusi  $pelusi
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pelusi $pelusi)
     {
-        $pelusi = Pelusi::find($id);
         $pelusi -> delete();
         return redirect('/pelusis');
     }

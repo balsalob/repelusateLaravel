@@ -60,7 +60,7 @@ class EventoController extends Controller
      */
     public function edit(Evento $evento)
     {
-        //
+        return view('evento.eventoedit')->with('evento', $evento);
     }
 
     /**
@@ -72,7 +72,8 @@ class EventoController extends Controller
      */
     public function update(Request $request, Evento $evento)
     {
-        //
+      $evento->update($request->all());
+      return redirect('/eventos');
     }
 
     /**
@@ -81,9 +82,8 @@ class EventoController extends Controller
      * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Evento $evento)
     {
-      $evento = Evento::find($id);
       $evento -> delete();
       return redirect('/eventos');
     }

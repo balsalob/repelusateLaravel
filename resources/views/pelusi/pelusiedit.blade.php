@@ -8,7 +8,7 @@
     <span class="red">E</span>ditar un pelusi
   </h1>
   <div class="row">
-    {!! Form::open(['route' => 'pelusi.update', 'method' => 'PUT']) !!}
+    {!! Form::open(['route' => ['pelusis.update', $pelusi], 'method' => 'PUT']) !!}
       <div class="form-group">
         {!! Form::label('nombre', 'Nombre') !!}
         {!! Form::text('nombre',$pelusi->nombre ,['class' => 'form-control',

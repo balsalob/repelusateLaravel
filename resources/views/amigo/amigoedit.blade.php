@@ -1,28 +1,28 @@
 @extends('layouts.main')
 
-@section('title', 'Crear amigo')
+@section('title', 'Editar amigo')
 
 @section('content')
 <div class="container margen fondo">
   <h1>
-    <span class="red">C</span>rea un amigos
+    <span class="red">E</span>dita un amigos
   </h1>
   <div class="row">
-    {!! Form::open(['route' => 'amigos.store', 'method' => 'POST']) !!}
+    {!! Form::open(['route' => ['amigos.update', $amigo], 'method' => 'PUT']) !!}
     <div class="form-group">
       {!! Form::label('nombre', 'Nombre') !!}
-      {!! Form::text('nombre', '', ['class' => 'form-control',
-      'placeholder' => 'nombre del amigo', 'required'])!!}
+      {!! Form::text('nombre', $amigo->nombre, ['class' => 'form-control',
+      'required'])!!}
     </div>
     <div class="form-group">
       {!! Form::label('texto', 'Texto')!!}
-      {!! Form::text('texto', '', ['class' => 'form-control',
-      'placeholder' => 'Texto del amigo', 'required'])!!}
+      {!! Form::text('texto', $amigo->texto, ['class' => 'form-control',
+      'required'])!!}
     </div>
     <div class="form-group">
       {!! Form::label('foto', 'Foto')!!}
-      {!! Form::text('foto', '', ['class' => 'form-control',
-      'placeholder' => 'foto del amigo', 'required'])!!}
+      {!! Form::text('foto', $amigo->foto, ['class' => 'form-control',
+      'required'])!!}
     </div>
     <div class="form-group">
         {!! Form::submit('Enviar', ['class' => 'btn btn-primary']) !!}

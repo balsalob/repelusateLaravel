@@ -8,10 +8,10 @@
     <span class="red">C</span>rea piezas
   </h1>
   <div class="row">
-    {!! Form::open(['rotute' => 'pieza.store', 'method' => 'POST']) !!}
+    {!! Form::open(['route' => 'piezas.store', 'method' => 'POST']) !!}
       <div class="form-group">
-        {!! Form::label('name', 'Nombre') !!}
-        {!! Form::text('name', '', ['class' => 'form-control',
+        {!! Form::label('nombre', 'Nombre') !!}
+        {!! Form::text('nombre', '', ['class' => 'form-control',
         'placeholder' => 'nombre de la pieza', 'required'])!!}
       </div>
       <div class="form-group">
