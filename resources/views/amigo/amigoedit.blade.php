@@ -8,7 +8,8 @@
     <span class="red">E</span>dita un amigos
   </h1>
   <div class="row">
-    {!! Form::open(['route' => ['amigos.update', $amigo], 'method' => 'PUT']) !!}
+    {!! Form::open(['route' => ['amigos.update', $amigo], 'method' => 'PUT',
+      'enctype'=>'multipart/form-data']) !!}
     <div class="form-group">
       {!! Form::label('nombre', 'Nombre') !!}
       {!! Form::text('nombre', $amigo->nombre, ['class' => 'form-control',
@@ -21,8 +22,7 @@
     </div>
     <div class="form-group">
       {!! Form::label('foto', 'Foto')!!}
-      {!! Form::text('foto', $amigo->foto, ['class' => 'form-control',
-      'required'])!!}
+      {!! Form::file('foto',['class' => 'form-control'])!!}
     </div>
     <div class="form-group">
         {!! Form::submit('Enviar', ['class' => 'btn btn-primary']) !!}

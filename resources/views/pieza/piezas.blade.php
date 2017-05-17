@@ -16,16 +16,22 @@
       <h4 class="card-title">{{ $pieza->nombre }}</h4>
       <p class="card-text">{{ $pieza->texto }}</p>
       <a href="{{ $pieza->url }}" target="_blank">Comprala aquí</a>
+      @if (Auth::check())
+        <div class="botones">
+          <a class="btn btn-primary" href="{{ route('piezas.edit', $pieza) }}">Editar</a>
+          {!! Form::open(['route' => ['piezas.destroy', $pieza], 'method' => 'DELETE']) !!}
+            {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+          {!! Form::close() !!}
+        </div>        
+      @endif
     </div>
-    <a class="btn btn-primary" href="{{ route('piezas.edit', $pieza) }}">Editar</a>
-    {!! Form::open(['route' => ['piezas.destroy', $pieza], 'method' => 'DELETE']) !!}
-      {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
   </div>
   @endforeach
   </div>
-  <div class="cold-md-12">
-    <a class="btn btn-primary" href="{{ route('piezas.create') }}">Crea un pieza nueva</a>
-  </div>
+  @if (Auth::check())
+    <div class="cold-md-12">
+      <a class="btn btn-primary" href="{{ route('piezas.create') }}">Crea un pieza nueva</a>
+    </div>
+  @endif
 </div>
 @endsection

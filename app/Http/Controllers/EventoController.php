@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class EventoController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('auth', ['except' => ['index']]);
+  }
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +41,10 @@ class EventoController extends Controller
     public function store(Request $request)
     {
       $evento = new Evento($request -> all());
+      $file = $request->file('foto');
+      $nombre = $file->getClientOriginalName();
+      \Storage::disk('eventos')->put($nombre,  \File::get($file));
+      $evento->foto = $nombre;
       $evento -> save();
       return redirect('/eventos');
     }
@@ -72,7 +80,17 @@ class EventoController extends Controller
      */
     public function update(Request $request, Evento $evento)
     {
-      $evento->update($request->all());
+      if(!empty($request->file('foto'))){
+        \Storage::disk('eventos')->delete($evento->foto);
+        $file = $request->file('foto');
+        $nombre = $file->getClientOriginalName();
+        \Storage::disk('eventos')->put($nombre,  \File::get($file));
+        $evento->update($request->all());
+        $evento->update(['foto' => $nombre]);
+      }else{
+        $evento->update($request->all());
+      }
+
       return redirect('/eventos');
     }
 
@@ -84,6 +102,7 @@ class EventoController extends Controller
      */
     public function destroy(Evento $evento)
     {
+      \Storage::disk('eventos')->delete($evento->foto);
       $evento -> delete();
       return redirect('/eventos');
     }

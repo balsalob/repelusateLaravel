@@ -44,13 +44,33 @@ return [
     'disks' => [
 
         'local' => [
-            'driver' => 'local',
-            'root' => storage_path('app'),
-        ],
+          'driver' => 'local',
+          'root' => public_path('img/pelusis'),
+      ],
+
+        'pelusi' => [
+          'driver' => 'local',
+          'root' => public_path('img/pelusis'),
+      ],
+
+        'amigos' => [
+          'driver' => 'local',
+          'root' => public_path('img/amigos'),
+      ],
+
+        'eventos' => [
+          'driver' => 'local',
+          'root' => public_path('img/eventos'),
+      ],
+
+        'piezas' => [
+          'driver' => 'local',
+          'root' => public_path('img/piezas'),
+      ],
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => storage_path('app/public/img'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],

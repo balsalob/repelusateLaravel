@@ -20,7 +20,7 @@
         <div class="carousel-item" style="background-image: url('/img/carrusel/2.jpg')">
             <div class="carousel-caption d-none d-md-block">
               <h1 class="display-3">
-                <img src="/img/pelusi.png" width="90" height="90" class="d-inline-block align-top" alt="pelusi">
+                <img src="/img/pelusi2.png" width="90" height="90" class="d-inline-block align-top" alt="pelusi">
                 <span class="red">R</span>epelusate
               </h1>
               <p class="lead">Complementos diferentes hechos a mano con mucho amor. </p>
@@ -30,7 +30,7 @@
         <div class="carousel-item" style="background-image: url('/img/carrusel/3.jpg')">
             <div class="carousel-caption d-none d-md-block">
               <h1 class="display-3">
-                <img src="/img/pelusi.png" width="90" height="90" class="d-inline-block align-top" alt="pelusi">
+                <img src="/img/pelusi2.png" width="90" height="90" class="d-inline-block align-top" alt="pelusi">
                 <span class="red">R</span>epelusate
               </h1>
               <p class="lead">Complementos diferentes hechos a mano con mucho amor. </p>

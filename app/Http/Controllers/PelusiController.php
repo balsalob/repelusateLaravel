@@ -5,8 +5,13 @@ namespace App\Http\Controllers;
 use App\Pelusi;
 use Illuminate\Http\Request;
 
+
 class PelusiController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth', ['except' => ['index']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +42,10 @@ class PelusiController extends Controller
     public function store(Request $request)
     {
         $pelusi = new Pelusi($request -> all());
+        $file = $request->file('foto');
+        $nombre = $file->getClientOriginalName();
+        \Storage::disk('pelusi')->put($nombre,  \File::get($file));
+        $pelusi->foto = $nombre;
         $pelusi -> save();
         return redirect('/pelusis');
     }
@@ -49,7 +58,7 @@ class PelusiController extends Controller
      */
     public function show(Pelusi $pelusi)
     {
-        return "Tu puta madre";
+
     }
 
     /**
@@ -72,7 +81,16 @@ class PelusiController extends Controller
      */
     public function update(Request $request, Pelusi $pelusi)
     {
-        $pelusi->update($request->all());
+        if(!empty($request->file('foto'))){
+          \Storage::disk('pelusi')->delete($pelusi->foto);
+          $file = $request->file('foto');
+          $nombre = $file->getClientOriginalName();
+          \Storage::disk('pelusi')->put($nombre,  \File::get($file));
+          $pelusi->update($request->all());
+          $pelusi->update(['foto' => $nombre]);
+        }else{
+          $pelusi->update($request->all());
+        }
         return redirect('/pelusis');
     }
 
@@ -84,6 +102,8 @@ class PelusiController extends Controller
      */
     public function destroy(Pelusi $pelusi)
     {
+
+        \Storage::disk('pelusi')->delete($pelusi->foto);
         $pelusi -> delete();
         return redirect('/pelusis');
     }

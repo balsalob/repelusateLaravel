@@ -14,16 +14,20 @@
     <div class="card-block">
       <h4 class="card-title">{{ $evento->nombre }}</h4>
       <p class="card-text">{{ $evento->texto }}</p>
+      @if (Auth::check())
+        <a class="btn btn-primary" href="{{ route('eventos.edit', $evento) }}">Editar</a>
+        {!! Form::open(['route' => ['eventos.destroy', $evento], 'method' => 'DELETE']) !!}
+          {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+        {!! Form::close() !!}
+      @endif
     </div>
-    <a class="btn btn-primary" href="{{ route('eventos.edit', $evento) }}">Editar</a>
-    {!! Form::open(['route' => ['eventos.destroy', $evento], 'method' => 'DELETE']) !!}
-      {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
   </div>
   @endforeach
   </div>
-  <div class="cold-md-12">
-    <a class="btn btn-primary" href="{{ route('eventos.create') }}">Crea un evento nuevo</a>
-  </div>
+  @if (Auth::check())
+    <div class="cold-md-12">
+      <a class="btn btn-primary" href="{{ route('eventos.create') }}">Crea un evento nuevo</a>
+    </div>
+  @endif
 </div>
 @endsection

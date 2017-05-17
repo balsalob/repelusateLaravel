@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class AmigoController extends Controller
 {
+
+  public function __construct()
+  {
+    $this->middleware('auth', ['except' => ['index']]);
+  }
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +42,10 @@ class AmigoController extends Controller
     public function store(Request $request)
     {
       $amigo = new Amigo($request -> all());
+      $file = $request->file('foto');
+      $nombre = $file->getClientOriginalName();
+      \Storage::disk('amigos')->put($nombre,  \File::get($file));
+      $amigo->foto = $nombre;
       $amigo -> save();
       return redirect('/amigos');
     }
@@ -72,7 +81,16 @@ class AmigoController extends Controller
      */
     public function update(Request $request, Amigo $amigo)
     {
-      $amigo->update($request->all());
+      if(!empty($request->file('foto'))){
+        \Storage::disk('amigos')->delete($amigo->foto);
+        $file = $request->file('foto');
+        $nombre = $file->getClientOriginalName();
+        \Storage::disk('amigos')->put($nombre,  \File::get($file));
+        $amigo->update($request->all());
+        $amigo->update(['foto' => $nombre]);
+      }else{
+        $amigo->update($request->all());
+      }
       return redirect('/amigos');
     }
 
@@ -84,6 +102,7 @@ class AmigoController extends Controller
      */
     public function destroy(Amigo $amigo)
     {
+      \Storage::disk('amigos')->delete($amigo->foto);
       $amigo -> delete();
       return redirect('/amigos');
     }

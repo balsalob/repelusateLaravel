@@ -8,7 +8,8 @@
     <span class="red">E</span>dita una pieza
   </h1>
   <div class="row">
-    {!! Form::open(['route' => ['piezas.update', $pieza], 'method' => 'PUT']) !!}
+    {!! Form::open(['route' => ['piezas.update', $pieza], 'method' => 'PUT',
+      'enctype'=>'multipart/form-data']) !!}
       <div class="form-group">
         {!! Form::label('nombre', 'Nombre') !!}
         {!! Form::text('nombre', $pieza->nombre, ['class' => 'form-control',
@@ -21,8 +22,7 @@
       </div>
       <div class="form-group">
         {!! Form::label('foto', 'Foto')!!}
-        {!! Form::text('foto', $pieza->foto, ['class' => 'form-control',
-        'required'])!!}
+        {!! Form::file('foto',['class' => 'form-control'])!!}
       </div>
       <div class="form-group">
         {!! Form::label('url', 'url')!!}

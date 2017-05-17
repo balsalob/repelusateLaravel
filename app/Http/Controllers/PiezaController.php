@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class PiezaController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('auth', ['except' => ['index']]);
+  }
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
     public function index()
     {
       $piezas = Pieza::get();
@@ -32,6 +41,10 @@ class PiezaController extends Controller
     public function store(Request $request)
     {
       $pieza = new Pieza($request -> all());
+      $file = $request->file('foto');
+      $nombre = $file->getClientOriginalName();
+      \Storage::disk('piezas')->put($nombre,  \File::get($file));
+      $pieza->foto = $nombre;
       $pieza -> save();
       return redirect('/piezas');
     }
@@ -67,7 +80,16 @@ class PiezaController extends Controller
      */
     public function update(Request $request, Pieza $pieza)
     {
-      $pieza->update($request->all());
+      if(!empty($request->file('foto'))){
+        \Storage::disk('piezas')->delete($pieza->foto);
+        $file = $request->file('foto');
+        $nombre = $file->getClientOriginalName();
+        \Storage::disk('piezas')->put($nombre,  \File::get($file));
+        $pieza->update($request->all());
+        $pieza->update(['foto' => $nombre]);
+      }else{
+        $pieza->update($request->all());
+      }
       return redirect('/piezas');
     }
 
@@ -79,6 +101,7 @@ class PiezaController extends Controller
      */
     public function destroy(Pieza $pieza)
     {
+      \Storage::disk('piezas')->delete($pieza->foto);
       $pieza -> delete();
       return redirect('/piezas');
     }

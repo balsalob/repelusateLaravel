@@ -8,7 +8,8 @@
     <span class="red">C</span>rea eventos
   </h1>
   <div class="row">
-    {!! Form::open(['route' => 'eventos.store', 'method' => 'POST']) !!}
+    {!! Form::open(['route' => 'eventos.store', 'method' => 'POST',
+      'enctype'=>'multipart/form-data']) !!}
       <div class="form-group">
         {!! Form::label('nombre', 'Nombre') !!}
         {!! Form::text('nombre', '', ['class' => 'form-control',
@@ -21,8 +22,7 @@
       </div>
       <div class="form-group">
         {!! Form::label('foto', 'Foto')!!}
-        {!! Form::text('foto', '', ['class' => 'form-control',
-        'placeholder' => 'foto del evento', 'required'])!!}
+        {!! Form::file('foto',['class' => 'form-control'])!!}
       </div>
       <div class="form-group">
         {!! Form::submit('Enviar', ['class' => 'btn btn-primary']) !!}
